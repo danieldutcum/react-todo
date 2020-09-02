@@ -1,41 +1,37 @@
-import React from "react"
-import todoData from "./todoData"
-import TodoList from "./TodoList"
+import React from "react";
+import todoData from "./todoData";
+import TodoList from "./TodoList";
 
-class TodoApp extends React.Component{
-    constructor(){
-        super()
-        this.state = {
-            todo: todoData
+class TodoApp extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      todo: todoData,
+    };
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(id) {
+    this.setState((prevState) => {
+      const updateTodo = prevState.todo.map((todo) => {
+        if (todo.id === id) {
+          todo.completed = !todo.completed;
         }
-        this.handleChange = this.handleChange.bind(this)
-    }
+        return todo;
+      });
+      return {
+        todo: updateTodo,
+      };
+    });
+  }
 
-    handleChange(id){
-       this.setState (prevState => {
-           const updateTodo = prevState.todo.map(todo => {
-               if (todo.id === id){
-                   todo.completed = !todo.completed
-               }
-               return todo
-           })
-           return {
-               todo: updateTodo
-           }
-       })
-    }
+  render() {
+    const todoComponents = this.state.todo.map((todos) => (
+      <TodoList key={todos.id} todo={todos} handleChange={this.handleChange} />
+    ));
 
-    render(){
-        const todoComponents = this.state.todo.map(todos => <TodoList key={todos.id} todo={todos} handleChange={this.handleChange} />)
-
-        return (
-            <div className='todo-list'>
-                {todoComponents}
-            </div>
-        )
-
-    }
-        
+    return <div className="todo-list">{todoComponents}</div>;
+  }
 }
 
 // class TodoApp extends React.Component{
@@ -65,5 +61,4 @@ class TodoApp extends React.Component{
 //     }
 // }
 
-
-export default TodoApp
+export default TodoApp;

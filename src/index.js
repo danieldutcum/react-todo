@@ -1,19 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import TodoApp from './component/TodoApp'
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+// import TodoApp from "./component/TodoApp";
+import TodoApp from "./davies/TodoApp";
+import * as serviceWorker from "./serviceWorker";
 
-ReactDOM.render(
-  <TodoApp />,
-  document.getElementById('root')
-);
+ReactDOM.render(<TodoApp />, document.getElementById("root"));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
-
 
 // import React from "react"
 // import ReactDOM from "react-dom"
@@ -22,5 +19,3 @@ serviceWorker.unregister();
 // ReactDOM.render(
 //     <JokeApp />, document.getElementById('root')
 // )
-
-

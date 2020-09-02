@@ -1,0 +1,101 @@
+
+.todo-list2 {
+  background-color: rgb(255, 255, 255);
+  margin: auto;
+  padding: 30px;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  border-radius: 10px;
+  border: 1px solid #efefef;
+}
+
+@media screen and (max-width: 500px){
+  .todo-list2{
+  grid-template-columns: 1fr;
+    
+  }
+}
+
+.todo-item2{
+  text-align:center;
+  padding: 10px;
+  width: 100%;
+  max-width: 30rem;
+  border: 1px solid #cecece;
+  font-family: Roboto, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 4px;
+  transition: .3s;
+  position: relative
+}
+
+.todo-item2::before{
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width:100%;
+  height: 100%;
+  opacity: 0.32;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: .2s
+}
+
+.todo-item2.green::before{
+  background-color: green;
+}
+.todo-item2.red::before{
+  background-color: red;
+}
+
+.todo-item2:hover::before{
+  transform: scaleY(1)
+}
+
+.green:hover{
+  box-shadow: 0 0px 2px 8px rgba(100, 299, 55, 0.363);
+}
+.red:hover{
+  box-shadow: 0 0px 2px 8px rgba(200, 55, 55, 0.363);
+}
+
+.tag{
+  margin-top: 10px;
+  padding: 10px;
+  background-color: red;
+  display: inline-block;
+  border-radius: 5px;
+  color: white;
+  font-weight: 100;
+  font-size: 15px;
+  z-index: 1000 ;
+}
+
+.tag.green{
+  background-color: green;
+}
+
+.tag.red{
+  background-color: red;
+}
+
+/* add form */
+form{
+  width: 100%;
+  max-width: 20rem;
+  margin: 0 auto;
+}
+
+form input{
+  width: 100%;
+  font-size: 20px;
+  padding: 10px;
+  outline: none;
+  border:none;
+  border-bottom: solid 2px black;
+}
